@@ -149,8 +149,6 @@ cython_debug/
 *.pth
 *.pt
 *.ckpt
-*.pkl
-*.pickle
 
 # TensorBoard logs
 runs/
@@ -171,20 +169,29 @@ weights/
 # Raw dataset (trop volumineux pour Git)
 data/raw/
 data/raw/*
+
+# CSV files (sauf processed et requirements.txt)
 *.csv
+!data/processed/**/*.csv
 !requirements.txt
 
-# Processed data
+# Pickle files (sauf processed)
+*.pkl
+*.pickle
+!data/processed/**/*.pkl
 
-# Embeddings (fichiers volumineux)
-embeddings/
+# Numpy files (sauf processed)
 *.npy
 *.npz
+!data/processed/**/*.npy
 
-# Graphes
+# Graphes (sauf processed)
 *.gpickle
 *.gexf
 *.graphml
+!data/processed/**/*.gpickle
+!data/processed/**/*.gexf
+!data/processed/**/*.graphml
 
 # Archives
 *.zip
@@ -290,11 +297,6 @@ $RECYCLE.BIN/
 # Project Specific
 # ========================================
 
-# Models directory (sauf structure)
-models/*.pth
-models/*.pt
-models/*.pkl
-
 # Outputs (garder le dossier mais pas les fichiers)
 outputs/*.png
 outputs/*.jpg
@@ -337,7 +339,6 @@ docs/_templates/
 
 # Garder les dossiers mais pas leur contenu
 !data/raw/.gitkeep
-!data/processed/.gitkeep
 !models/.gitkeep
 !outputs/.gitkeep
 !logs/.gitkeep
